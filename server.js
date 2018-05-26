@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt-nodejs');
 const cors = require('cors');
 const knex = require('knex');
-const port = 4000;
+const PORT = process.env.PORT || 4000;
 
 const register = require('./Controllers/register');
 const signIn = require('./Controllers/signIn');
@@ -39,6 +39,6 @@ app.put('/image', image.handleImage(db));
 
 app.post('/imageUrl', image.handleApiCall());
 
-app.listen(port, () => {
-	console.log(`app is running on port ${port}`);
+app.listen(PORT, () => {
+	console.log(`app is running on port ${PORT}`);
 });
